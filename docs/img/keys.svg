@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" width="960" height="440" role="img" aria-labelledby="t d" font-family="-apple-system, 'Segoe UI', Inter, Helvetica, Arial, sans-serif">
+  <title id="t">Four values, two pairs: which key goes where</title>
+  <desc id="d">Your Jiwe app page shows four values. Client ID and API Secret are the Login keys. API Username and API Key are the Wallet keys. Each pair goes into its own group on the Jiwe SDK settings page in Unreal.</desc>
+  <defs>
+    <marker id="ko" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#c2410c"/></marker>
+    <marker id="kt" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#0e7490"/></marker>
+  </defs>
+  <rect width="960" height="440" fill="#ffffff"/>
+
+  <!-- left: Jiwe app page -->
+  <text x="40" y="40" font-size="13" fill="#57606a">WHERE THE VALUES COME FROM</text>
+  <text x="40" y="64" font-size="17" font-weight="700" fill="#1b1f24">jiwe.io &#8250; Profile &#8250; My Apps</text>
+
+  <rect x="40" y="84" width="300" height="300" rx="14" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1.5"/>
+  <text x="60" y="114" font-size="14" font-weight="700" fill="#1b1f24">Your application</text>
+
+  <rect x="60" y="130" width="260" height="46" rx="8" fill="#ffffff" stroke="#c2410c" stroke-width="1.5"/>
+  <circle cx="82" cy="153" r="6" fill="#c2410c"/><text x="98" y="158" font-size="15" fill="#1b1f24">Client ID</text>
+  <rect x="60" y="186" width="260" height="46" rx="8" fill="#ffffff" stroke="#c2410c" stroke-width="1.5"/>
+  <circle cx="82" cy="209" r="6" fill="#c2410c"/><text x="98" y="214" font-size="15" fill="#1b1f24">API Secret</text>
+
+  <rect x="60" y="262" width="260" height="46" rx="8" fill="#ffffff" stroke="#0e7490" stroke-width="1.5"/>
+  <circle cx="82" cy="285" r="6" fill="#0e7490"/><text x="98" y="290" font-size="15" fill="#1b1f24">API Username</text>
+  <rect x="60" y="318" width="260" height="46" rx="8" fill="#ffffff" stroke="#0e7490" stroke-width="1.5"/>
+  <circle cx="82" cy="341" r="6" fill="#0e7490"/><text x="98" y="346" font-size="15" fill="#1b1f24">API Key</text>
+
+  <!-- right: Unreal settings -->
+  <text x="520" y="40" font-size="13" fill="#57606a">WHERE YOU PASTE THEM</text>
+  <text x="520" y="64" font-size="17" font-weight="700" fill="#1b1f24">Project Settings &#8250; Plugins &#8250; Jiwe SDK</text>
+
+  <rect x="520" y="84" width="400" height="136" rx="14" fill="#fff4ec" stroke="#c2410c" stroke-width="1.5"/>
+  <text x="540" y="112" font-size="15" font-weight="700" fill="#9a3412">1 - Login Keys</text>
+  <rect x="540" y="130" width="170" height="38" rx="6" fill="#ffffff" stroke="#c2410c"/><text x="554" y="154" font-size="14" fill="#1b1f24">Client ID</text>
+  <rect x="540" y="172" width="170" height="38" rx="6" fill="#ffffff" stroke="#c2410c"/><text x="554" y="196" font-size="14" fill="#1b1f24">API Secret</text>
+  <text x="730" y="150" font-size="13" fill="#1b1f24">Used once, when a</text>
+  <text x="730" y="168" font-size="13" fill="#1b1f24">player logs in.</text>
+  <text x="730" y="196" font-size="13" fill="#57606a">Goes to Jiwe ID.</text>
+
+  <rect x="520" y="248" width="400" height="136" rx="14" fill="#ecfbff" stroke="#0e7490" stroke-width="1.5"/>
+  <text x="540" y="276" font-size="15" font-weight="700" fill="#155e75">2 - Wallet Keys</text>
+  <rect x="540" y="294" width="170" height="38" rx="6" fill="#ffffff" stroke="#0e7490"/><text x="554" y="318" font-size="14" fill="#1b1f24">API Username</text>
+  <rect x="540" y="336" width="170" height="38" rx="6" fill="#ffffff" stroke="#0e7490"/><text x="554" y="360" font-size="14" fill="#1b1f24">API Key</text>
+  <text x="730" y="314" font-size="13" fill="#1b1f24">Sent with every reward</text>
+  <text x="730" y="332" font-size="13" fill="#1b1f24">and leaderboard call.</text>
+  <text x="730" y="360" font-size="13" fill="#57606a">Goes to Jiwe Wallet.</text>
+
+  <!-- arrows -->
+  <path d="M320 153 C 420 153, 430 149, 534 149" fill="none" stroke="#c2410c" stroke-width="2" marker-end="url(#ko)"/>
+  <path d="M320 209 C 420 209, 430 191, 534 191" fill="none" stroke="#c2410c" stroke-width="2" marker-end="url(#ko)"/>
+  <path d="M320 285 C 420 285, 430 313, 534 313" fill="none" stroke="#0e7490" stroke-width="2" marker-end="url(#kt)"/>
+  <path d="M320 341 C 420 341, 430 355, 534 355" fill="none" stroke="#0e7490" stroke-width="2" marker-end="url(#kt)"/>
+
+  <text x="480" y="420" font-size="14" fill="#1b1f24" text-anchor="middle">Putting a Wallet key in a Login field (or the other way round) is the most common setup mistake.</text>
+</svg>

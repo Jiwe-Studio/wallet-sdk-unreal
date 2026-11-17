@@ -1,0 +1,25 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "0.1.0",
+	"FriendlyName": "Jiwe SDK",
+	"Description": "Jiwe login, XP and airtime rewards, leaderboards, purchases and cloud saves for Unreal Engine games.",
+	"Category": "Online Platform",
+	"CreatedBy": "Jiwe Studio",
+	"CreatedByURL": "https://www.jiwe.io",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "https://www.jiwe.io",
+	"CanContainContent": false,
+	"EnabledByDefault": true,
+	"IsBetaVersion": true,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "JiweSDK",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}

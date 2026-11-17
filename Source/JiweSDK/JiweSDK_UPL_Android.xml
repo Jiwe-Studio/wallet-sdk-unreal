@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	Jiwe SDK: Android login redirect.
+
+	After the player logs in, the browser opens  <scheme>://oauth-callback?code=...
+	This file (1) tells Android that this game handles that link, and
+	         (2) hands the link to the plugin's C++ code.
+
+	The scheme comes from Project Settings > Plugins > Jiwe SDK > Android Redirect Scheme.
+	Change it there, then package again.
+-->
+<root xmlns:android="http://schemas.android.com/apk/res/android">
+	<init>
+		<log text="JiweSDK: adding the Jiwe login redirect to the Android build"/>
+		<setStringFromProperty result="JiweScheme" ini="Game" section="/Script/JiweSDK.JiweSettings" property="MobileRedirectScheme" default="jiwewallet"/>
+	</init>
+
+	<!-- (1) AndroidManifest.xml: add an intent filter to the game activity -->
+	<androidManifestUpdates>
+		<loopElements tag="activity">
+			<setStringFromAttribute result="JiweActivityName" tag="$" name="android:name"/>
+			<setBoolIsEqual result="bJiweIsGameActivity" arg1="$S(JiweActivityName)" arg2="com.epicgames.unreal.GameActivity"/>
+			<if condition="bJiweIsGameActivity">
+				<true>
+					<!-- Android 12+ requires this on any activity that has an intent filter -->
+					<addAttribute tag="$" name="android:exported" value="true"/>
+
+					<setElement result="JiweFilter" value="intent-filter"/>
+
+					<setElement result="JiweAction" value="action"/>
+					<addAttribute tag="$JiweAction" name="android:name" value="android.intent.action.VIEW"/>
+					<addElement tag="$JiweFilter" name="JiweAction"/>
+
+					<setElement result="JiweCategoryDefault" value="category"/>
+					<addAttribute tag="$JiweCategoryDefault" name="android:name" value="android.intent.category.DEFAULT"/>
+					<addElement tag="$JiweFilter" name="JiweCategoryDefault"/>
+
+					<setElement result="JiweCategoryBrowsable" value="category"/>
+					<addAttribute tag="$JiweCategoryBrowsable" name="android:name" value="android.intent.category.BROWSABLE"/>
+					<addElement tag="$JiweFilter" name="JiweCategoryBrowsable"/>
+
+					<setElement result="JiweData" value="data"/>
+					<addAttribute tag="$JiweData" name="android:scheme" value="$S(JiweScheme)"/>
+					<addElement tag="$JiweFilter" name="JiweData"/>
+
+					<addElement tag="$" name="JiweFilter"/>
+				</true>
+			</if>
+		</loopElements>
+	</androidManifestUpdates>
+
+	<!-- (2) GameActivity.java: pass the link that opened the game to C++ -->
+	<gameActivityClassAdditions>
+		<insert>
+	// Jiwe SDK
+	private String jiweLastDeepLink = "";
+	public native void nativeJiweHandleDeepLink(String url);
+		</insert>
+	</gameActivityClassAdditions>
+
+	<!--
+		onResume runs both when a link brings the running game back to the front
+		(Unreal's onNewIntent stores the new intent first) and on a cold start.
+	-->
+	<gameActivityOnResumeAdditions>
+		<insert>
+		// Jiwe SDK: forward a login redirect link to the plugin
+		try
+		{
+			android.content.Intent jiweIntent = getIntent();
+			if (jiweIntent != null)
+			{
+				android.net.Uri jiweUri = jiweIntent.getData();
+				if (jiweUri != null)
+				{
+					String jiweLink = jiweUri.toString();
+					if (!jiweLink.equals(jiweLastDeepLink))
+					{
+						jiweLastDeepLink = jiweLink;
+						nativeJiweHandleDeepLink(jiweLink);
+					}
+				}
+			}
+		}
+		catch (Throwable jiweError)
+		{
+			android.util.Log.w("JiweSDK", "Could not forward the login redirect: " + jiweError);
+		}
+		</insert>
+	</gameActivityOnResumeAdditions>
+</root>

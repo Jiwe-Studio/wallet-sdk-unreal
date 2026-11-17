@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 300" width="960" height="300" role="img" aria-labelledby="t d" font-family="-apple-system, 'Segoe UI', Inter, Helvetica, Arial, sans-serif">
+  <title id="t">Blueprint example: log in, then award XP</title>
+  <desc id="d">A sketch of a Blueprint graph. A button On Clicked event runs Jiwe Login. Its On Success pin runs Jiwe Give XP with 20 XP. That node's On Success pin runs Print String. Each Jiwe node also has an On Failure pin that carries an error message.</desc>
+  <defs>
+    <marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#1b1f24"/></marker>
+  </defs>
+  <rect width="960" height="300" fill="#ffffff"/>
+  <text x="30" y="30" font-size="13" fill="#57606a">SKETCH OF A BLUEPRINT GRAPH (NOT A SCREENSHOT)</text>
+
+  <!-- event -->
+  <rect x="30" y="60" width="170" height="70" rx="10" fill="#f6f8fa" stroke="#1b1f24" stroke-width="1.5"/>
+  <rect x="30" y="60" width="170" height="28" rx="10" fill="#1b1f24"/><rect x="30" y="76" width="170" height="12" fill="#1b1f24"/>
+  <text x="44" y="79" font-size="13" font-weight="700" fill="#ffffff">Button: On Clicked</text>
+  <text x="186" y="113" font-size="13" fill="#1b1f24" text-anchor="end">&#9654;</text>
+
+  <!-- Jiwe Login -->
+  <rect x="270" y="60" width="200" height="150" rx="10" fill="#fff4ec" stroke="#c2410c" stroke-width="1.5"/>
+  <rect x="270" y="60" width="200" height="28" rx="10" fill="#c2410c"/><rect x="270" y="76" width="200" height="12" fill="#c2410c"/>
+  <text x="284" y="79" font-size="13" font-weight="700" fill="#ffffff">Jiwe Login</text>
+  <text x="284" y="113" font-size="13" fill="#1b1f24">&#9654;</text>
+  <text x="456" y="113" font-size="13" fill="#1b1f24" text-anchor="end">On Success &#9654;</text>
+  <text x="456" y="139" font-size="13" fill="#1b1f24" text-anchor="end">On Failure &#9654;</text>
+  <text x="456" y="165" font-size="13" fill="#57606a" text-anchor="end">User &#9679;</text>
+  <text x="456" y="191" font-size="13" fill="#57606a" text-anchor="end">Error &#9679;</text>
+
+  <!-- Jiwe Give XP -->
+  <rect x="540" y="60" width="200" height="150" rx="10" fill="#ecfbff" stroke="#0e7490" stroke-width="1.5"/>
+  <rect x="540" y="60" width="200" height="28" rx="10" fill="#0e7490"/><rect x="540" y="76" width="200" height="12" fill="#0e7490"/>
+  <text x="554" y="79" font-size="13" font-weight="700" fill="#ffffff">Jiwe Give XP</text>
+  <text x="554" y="113" font-size="13" fill="#1b1f24">&#9654;</text>
+  <text x="554" y="139" font-size="13" fill="#57606a">&#9679; Xp  20</text>
+  <text x="554" y="165" font-size="13" fill="#57606a">&#9679; Description</text>
+  <text x="726" y="113" font-size="13" fill="#1b1f24" text-anchor="end">On Success &#9654;</text>
+  <text x="726" y="139" font-size="13" fill="#1b1f24" text-anchor="end">On Failure &#9654;</text>
+  <text x="726" y="165" font-size="13" fill="#57606a" text-anchor="end">Result &#9679;</text>
+
+  <!-- Print -->
+  <rect x="810" y="60" width="120" height="70" rx="10" fill="#f6f8fa" stroke="#1b1f24" stroke-width="1.5"/>
+  <rect x="810" y="60" width="120" height="28" rx="10" fill="#57606a"/><rect x="810" y="76" width="120" height="12" fill="#57606a"/>
+  <text x="824" y="79" font-size="13" font-weight="700" fill="#ffffff">Print String</text>
+  <text x="824" y="113" font-size="13" fill="#1b1f24">&#9654;</text>
+
+  <!-- wires -->
+  <line x1="190" y1="108" x2="280" y2="108" stroke="#1b1f24" stroke-width="2" marker-end="url(#b)"/>
+  <line x1="460" y1="108" x2="550" y2="108" stroke="#1b1f24" stroke-width="2" marker-end="url(#b)"/>
+  <line x1="730" y1="108" x2="820" y2="108" stroke="#1b1f24" stroke-width="2" marker-end="url(#b)"/>
+
+  <text x="30" y="252" font-size="14" fill="#1b1f24">Every Jiwe node works the same way: one execution pin in, <tspan font-weight="700">On Success</tspan> and <tspan font-weight="700">On Failure</tspan> out.</text>
+  <text x="30" y="276" font-size="14" fill="#1b1f24">On Failure always comes with a message that says what to fix. Show it or print it while you are setting up.</text>
+</svg>

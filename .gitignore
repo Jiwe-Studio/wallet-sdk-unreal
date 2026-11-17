@@ -1,0 +1,10 @@
+# Unreal build output
+Binaries/
+Intermediate/
+# OS and editor noise
+.DS_Store
+Thumbs.db
+*.swp
+.vs/
+.idea/
+__pycache__/
